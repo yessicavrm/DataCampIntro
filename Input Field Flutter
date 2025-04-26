@@ -1,0 +1,84 @@
+Main.Dart
+import 'package:eld_erly_draft/main.dart';
+import 'package:eld_erly_draft/todo_page.dart';
+import 'package:flutter/material.dart';
+
+void main(){
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget{
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: ToDoPage(),
+      
+     /// body: 
+
+
+    );
+  }
+}
+_______________________________________________________________
+InputField.Dart
+import 'package:flutter/material.dart';
+
+
+
+class ToDoPage extends StatefulWidget {
+  const ToDoPage({super.key});
+
+  @override
+  State<ToDoPage> createState() => _ToDoPageState();
+}
+
+class _ToDoPageState extends State<ToDoPage> {
+
+String greetingMessage = "";
+
+void greetingname() {
+    setState(() {
+    greetingMessage = "Welcome Home " + myController.text;
+  });
+}
+
+
+  TextEditingController myController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+
+              Text(greetingMessage),
+          
+            TextField(
+            controller: myController,
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: "Type your name here..."
+            ),
+            ),
+          
+          ElevatedButton(
+            onPressed: greetingname, 
+            child: Text("Tap Me")
+          ),
+          
+            ]
+                ),
+        ),
+      ),
+    
+    ); // Scaffold
+
+  } // Widget build
+
+} // Class ToDoPageState || MyApp
